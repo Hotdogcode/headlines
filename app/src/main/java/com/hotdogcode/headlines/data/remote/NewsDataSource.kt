@@ -35,7 +35,7 @@ class NewsDataSource(
                     }
                     callback.onResult(newList,
                         null,
-                        "https://timesofindia.indiatimes.com/rssfeeds/1898055.cms"
+                        "https://rss.app/feeds/jyF9Tely7o5QRS8A.xml"
                     )
 
 
@@ -68,7 +68,7 @@ class NewsDataSource(
 //            }
 
 
-            val response = newsApi.getTOITopStories("https://timesofindia.indiatimes.com/rssfeeds/1898055.cms")
+            val response = newsApi.getTOITopStories("https://rss.app/feeds/WDmVQmEtLr5pkRWl.xml")
             when{
                 response.isSuccessful->{
 //                    val newList = response.body()?.articles!!.filter {
@@ -83,7 +83,7 @@ class NewsDataSource(
                         it.title.length>5
                     }
                     callback.onResult(newList,
-                        "https://timesofindia.indiatimes.com/rssfeeds/1898055.cms"
+                        "https://rss.app/feeds/WDmVQmEtLr5pkRWl.xml"
                     )
 
 

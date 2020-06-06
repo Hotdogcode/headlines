@@ -38,7 +38,7 @@ class NewsListAdapter:PagedListAdapter<News,NewsListAdapter.NewsViewHolder>(Diff
         fun bind(news:News){
             title.text = news.title
             var imgLink:String?=null
-            news.contentHtml?.let {
+            news.description?.let {
                 Log.e("aslam",it)
                 val e = Jsoup.parse(it).select("img")
                 imgLink = e?.attr("src")

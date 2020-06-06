@@ -4,9 +4,7 @@ import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 data class News(
-    @Expose
-    @SerializedName("author")
-    val author:String,
+
 
     @Expose
     @SerializedName("title")
@@ -41,6 +39,6 @@ data class News(
     val content:String
 ){
     override fun toString(): String {
-        return "$author -> $title -> $description -> $url -> $urlToImage -> $publishedAt -> $content"
+        return "$title -> $description -> $url -> $urlToImage -> $publishedAt -> $content"
     }
 }

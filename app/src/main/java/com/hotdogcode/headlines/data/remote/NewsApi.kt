@@ -12,7 +12,7 @@ interface NewsApi {
             Response<com.hotdogcode.headlines.data.model.api.Response>
 
 
-    @GET("convert?")
-    suspend fun getTOITopStories(@Query("url") url:String):Response<com.hotdogcode.headlines.data.model.api.Response>
+    @GET("api.json?")
+    suspend fun getTOITopStories(@Query("rss_url") url:String):Response<com.hotdogcode.headlines.data.model.api.Response>
 
 }
