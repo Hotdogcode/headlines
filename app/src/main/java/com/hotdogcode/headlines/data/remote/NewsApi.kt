@@ -1,6 +1,7 @@
 package com.hotdogcode.headlines.data.remote
 
 import com.hotdogcode.headlines.data.model.api.Rss
+import com.hotdogcode.headlines.data.model.common.NewsSourceResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -14,5 +15,9 @@ interface NewsApi {
 
     @GET("api.json?")
     suspend fun getTOITopStories(@Query("rss_url") url:String):Response<com.hotdogcode.headlines.data.model.api.Response>
+
+
+    @GET("sources.json")
+    suspend fun getNewsSources():Response<NewsSourceResponse>
 
 }

@@ -19,7 +19,7 @@ class NewsDataSource(
     ) {
         job = coroutineScope.launch {
 //            val response = newsApi.getNewsList(1,params.requestedLoadSize)
-            val response = newsApi.getTOITopStories("https://timesofindia.indiatimes.com/rssfeedstopstories.cms")
+            val response = newsApi.getTOITopStories("https://rss.app/feeds/jyF9Tely7o5QRS8A.xml")
             when{
                 response.isSuccessful->{
 //                    val newList = response.body()?.articles!!.filter {

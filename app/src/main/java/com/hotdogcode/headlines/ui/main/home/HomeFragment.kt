@@ -45,5 +45,6 @@ class HomeFragment : Fragment() {
             adapter.submitList(it)
         })
 //        viewModel.fetch()
+        viewModel.fetchNewsSource()
     }
 }

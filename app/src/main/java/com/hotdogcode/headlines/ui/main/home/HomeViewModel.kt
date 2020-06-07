@@ -18,6 +18,8 @@ class HomeViewModel :  ViewModel() {
     val newsList = MutableLiveData<List<News>>()
     val newsService = NewsService.getNewsService()
     val feedService = NewsService.getFeedService()
+    val newsSourceService = NewsService.getNewsSource();
+    val splashLoading = MutableLiveData<Boolean>(true)
 
 
 
@@ -53,6 +55,23 @@ class HomeViewModel :  ViewModel() {
         val dataSourceFactory2 = NewsDataSourceFactory(feedService,scope,job)
 
         return LivePagedListBuilder<String, News>(dataSourceFactory2,config)
+    }
+
+    fun fetchNewsSource(){
+        val job = CoroutineScope(Dispatchers.IO+exceptionHandler).launch {
+            val response = newsSourceService.getNewsSources()
+            when{
+                response.isSuccessful->{
+                    val sourceList = response.body()?.sourceList
+                    sourceList?.forEach {
+                        Log.e("aslam123",it.name)
+                    }
+                }
+                else->{
+                    Log.e("aslam",response.message())
+                }
+            }
+        }
     }
 
     fun fetch2(){

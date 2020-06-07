@@ -2,6 +2,7 @@ package com.hotdogcode.headlines.data.remote
 
 import com.hotdogcode.headlines.utils.BASE_URL
 import com.hotdogcode.headlines.utils.BASE_URL_TOI_FEED
+import com.hotdogcode.headlines.utils.BASE_URL_TO_SOURCES
 import org.simpleframework.xml.convert.AnnotationStrategy
 import org.simpleframework.xml.core.Persister
 import retrofit2.Retrofit
@@ -20,6 +21,14 @@ object NewsService {
     fun getFeedService():NewsApi{
         return Retrofit.Builder()
             .baseUrl(BASE_URL_TOI_FEED)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(NewsApi::class.java)
+    }
+
+    fun getNewsSource():NewsApi{
+        return Retrofit.Builder()
+            .baseUrl(BASE_URL_TO_SOURCES)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(NewsApi::class.java)
